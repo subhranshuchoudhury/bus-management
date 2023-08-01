@@ -25,6 +25,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "ac15f05d-3508-4b19-a3be-834fb0ad7dc7"
+      }
+    },
+    "owner": "subhranshuchoudhury"
   }
 }
