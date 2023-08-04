@@ -1,8 +1,8 @@
 // home.jsx
 
-const searchBarPlaceholderText = "Type Here...";
-const test = "Test";
+const searchBarPlaceholderText = "Where to?";
+const beginsEnds = ["Begins", "Ends"];
 
 // export
 
-module.exports = { searchBarPlaceholderText, test };
+module.exports = { searchBarPlaceholderText, beginsEnds };
