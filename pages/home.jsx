@@ -7,17 +7,16 @@ import SkeletonBox from "../components/SkeletonBox";
 import SearchBarComp from "../components/SearchBar";
 import socketServices from "../utils/socket/socketService";
 import { T3 } from "../utils/texts/texts";
-
-const Home = () => {
+import * as SplashScreen from "expo-splash-screen";
+const Home = ({ navigation }) => {
   const [Buses, setBuses] = useState([]);
   const [socketData, setSocketData] = useState("");
 
   useEffect(() => {
     // socketServices.initializeSocket();
+
     getBus();
   }, []);
-
-  useEffect(() => {});
 
   // defined functions
 
@@ -25,14 +24,20 @@ const Home = () => {
     getAllBus()
       .then(({ buses }) => {
         setBuses(buses);
+        hideSplashScreen();
       })
       .catch((e) => {
         console.log(e);
+        hideSplashScreen();
       });
   };
 
   const searchInput = (val) => {
     alert(val);
+  };
+
+  const hideSplashScreen = async () => {
+    await SplashScreen.hideAsync();
   };
 
   // end defined functions

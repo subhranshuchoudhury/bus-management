@@ -1,48 +1,44 @@
 import { StatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import "react-native-url-polyfill/auto"; // for encoding url : sanity.io
 import Home from "./pages/home";
-const Tab = createBottomTabNavigator();
+import * as SplashScreen from "expo-splash-screen";
+import LoginScreen from "./pages/auth/login";
+import Main from "./tabs/Main";
 
-import homeIcon from "./assets/icons/home.png";
-import userIcon from "./assets/icons/user.png";
-import { Image } from "react-native";
+SplashScreen.preventAutoHideAsync();
 
+const Stack = createNativeStackNavigator();
 export default function App() {
+  setTimeout(SplashScreen.hideAsync, 3000);
+
   return (
     <NavigationContainer>
       <StatusBar style="auto" />
-      <Tab.Navigator
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
-            if (route.name === "Home") {
-              return (
-                <Image
-                  source={homeIcon}
-                  style={{ tintColor: focused ? "#000" : "#DDE1D7" }}
-                  className="w-10 h-10"
-                />
-              );
-            } else if (route.name === "Profile") {
-              return <Image source={userIcon} />;
-            }
-          },
-          tabBarActiveTintColor: "black",
-          tabBarInactiveTintColor: "black",
-          tabBarStyle: {
-            paddingTop: 5,
-            marginBottom: 0,
-            height: 60,
-          },
-        })}
-      >
-        <Tab.Screen
-          options={{ headerShown: false }}
+      <Stack.Navigator>
+        <Stack.Screen
+          options={{
+            headerShown: false,
+          }}
+          name="Login"
+          component={LoginScreen}
+        />
+        <Stack.Screen
           name="Home"
           component={Home}
+          options={{
+            headerShown: false,
+          }}
         />
-      </Tab.Navigator>
+        <Stack.Screen
+          name="Main"
+          component={Main}
+          options={{
+            headerShown: false,
+          }}
+        />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }

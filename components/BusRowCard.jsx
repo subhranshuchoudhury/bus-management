@@ -47,11 +47,9 @@ const BusRowCard = ({ props }) => {
               );
             })}
           </View>
-          <View>
-            <View className="justify-between items-center flex-row p-2 pl-4 pr-4">
-              <Text>{convertToTime(startTime)}</Text>
-              <Text>{convertToTime(endTime)}</Text>
-            </View>
+          <View className="justify-between items-center flex-row p-2 pl-4 pr-4">
+            <Text>{convertToTime(startTime)}</Text>
+            <Text>{convertToTime(endTime)}</Text>
           </View>
         </View>
       </TouchableOpacity>
