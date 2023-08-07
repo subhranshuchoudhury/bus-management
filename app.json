@@ -21,7 +21,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/app/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.subhranshuchoudhury.busmanagement"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -33,12 +34,8 @@
     },
     "owner": "subhranshuchoudhury",
     "androidNavigationBar": {
-    
-      "visible": true,
-      
+      "visible": "leanback",
       "barStyle": "dark-content",
-   
-      
       "backgroundColor": "#ffffff"
     }
   }

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, ScrollView, FlatList } from "react-native";
+import { View, Text, FlatList } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { getAllBus } from "../utils/hygraph/connect";
 import BusRowCard from "../components/BusRowCard";
 import SkeletonBox from "../components/SkeletonBox";
 import SearchBarComp from "../components/SearchBar";
-import socketServices from "../utils/socket/socketService";
+// import socketServices from "../utils/socket/socketService";
 import { T3 } from "../utils/texts/texts";
 import * as SplashScreen from "expo-splash-screen";
 const Home = ({ navigation }) => {
@@ -24,11 +24,11 @@ const Home = ({ navigation }) => {
     getAllBus()
       .then(({ buses }) => {
         setBuses(buses);
-        hideSplashScreen();
+        // hideSplashScreen();
       })
       .catch((e) => {
         console.log(e);
-        hideSplashScreen();
+        // hideSplashScreen();
       });
   };
 
