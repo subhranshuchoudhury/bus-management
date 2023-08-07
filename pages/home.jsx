@@ -5,9 +5,9 @@ import { getAllBus } from "../utils/hygraph/connect";
 import BusRowCard from "../components/BusRowCard";
 import SkeletonBox from "../components/SkeletonBox";
 import SearchBarComp from "../components/SearchBar";
-// import socketServices from "../utils/socket/socketService";
 import { T3 } from "../utils/texts/texts";
-import * as SplashScreen from "expo-splash-screen";
+// import socketServices from "../utils/socket/socketService";
+
 const Home = ({ navigation }) => {
   const [Buses, setBuses] = useState([]);
   const [socketData, setSocketData] = useState("");
@@ -24,20 +24,14 @@ const Home = ({ navigation }) => {
     getAllBus()
       .then(({ buses }) => {
         setBuses(buses);
-        // hideSplashScreen();
       })
       .catch((e) => {
         console.log(e);
-        // hideSplashScreen();
       });
   };
 
   const searchInput = (val) => {
     alert(val);
-  };
-
-  const hideSplashScreen = async () => {
-    await SplashScreen.hideAsync();
   };
 
   // end defined functions
